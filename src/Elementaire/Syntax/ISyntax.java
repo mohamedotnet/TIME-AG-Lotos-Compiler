@@ -5,6 +5,6 @@ import java.util.ArrayList;
 
 
 public interface ISyntax {
-    public AST Parsing(ArrayList<String> Units);
-    public int Priority(String Op1, String Op2);
+    AST Parsing(ArrayList<String> Units);
+    int Priority(String Op1, String Op2);
 }

@@ -1,18 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CompilerGUI implements Runnable{
 
-    private JFrame frame;
-    private JTextField localite, expression;
-    private JLabel labelLocalite, labelExpression;
-    private JButton compile;
+    /* TODO: handle thread exit */
 
+    private JTextField localite, expression;
 
     @Override
     public void run() {
+        JFrame frame;
+        JLabel labelLocalite, labelExpression;
+        JButton compile;
+
         frame = new JFrame("Time-AG LOTOS Compiler");
 
 
@@ -42,9 +43,9 @@ public class CompilerGUI implements Runnable{
         frame.add(labelExpression);
         frame.add(expression);
 
-        compile.addActionListener((ActionEvent e)->{
-            new Thread(new Compiler(localite.getText(), expression.getText())).start();
-        });
+        compile.addActionListener((ActionEvent e)->
+                new Thread(new Compiler(localite.getText(), expression.getText())).start()
+        );
         frame.setSize(700, 220);
         frame.setLayout(null);
         frame.setVisible(true);

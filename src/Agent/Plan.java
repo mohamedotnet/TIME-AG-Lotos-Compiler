@@ -1,15 +1,11 @@
 package Agent;
 
-import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
-import org.graphstream.graph.Path;
 import org.graphstream.graph.implementations.SingleGraph;
 import Graph.GraphStyle;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class Plan {
     private String expression;
@@ -18,16 +14,17 @@ public class Plan {
         expression = input;
     }
 
+    /*
     public String[] generateGraph() {
         Graph plan = new SingleGraph("Plan");
         String[] nds = expression.split("\\s?=\\s?", 2);
         String[] node = nds[0].split("\\s?>>\\s?|\\s?\\Q|||\\E\\s?");
 
         return nds;
-    }
+    }*/
 
 
-    public char randomChar() {
+    private char randomChar() {
         int rand = ThreadLocalRandom.current().nextInt(97, 122);
         System.out.println(rand);
         return (char) (rand);
@@ -82,31 +79,4 @@ public class Plan {
         return plan;
     }
 
-
-    public static void main(String args[]) {
-        Plan plan = new Plan("P0| = (move(l2){2}; get_copies(l2){1}; move(l2){2}; exit<>" +
-                "Ali!(get_copies(l2)){1}; exit) |||(meet(Ali)@t[4<=t<=7]; exit)" +
-                "|||(move(l1);exit)>> (a; b; exit)");
-
-        Graph graph = plan.generatePlanGraph();
-
-        /*String planExpression = "(meet(Ali)@t[4<=t<=7]; exit)|||(move(l1);exit)>> a; b; exit";
-        Pattern pattern  = Pattern.compile("\\((.?)*\\;exit\\)");
-        Matcher matcher = pattern.matcher(planExpression);
-        matcher.matches();
-        matcher.group(1);*/
-
-        for (Node node:
-             graph) {
-            System.out.println(node.getIndex());
-        }
-        GraphStyle.style(graph);
-        graph.display(false);
-
-        /*for (String node : plan.generateGraph()){
-            System.out.println(node);
-        }*/
-
-
-    }
 }

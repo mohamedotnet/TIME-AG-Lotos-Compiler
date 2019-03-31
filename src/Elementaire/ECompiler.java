@@ -20,23 +20,23 @@ import java.util.regex.Pattern;
 
 public class ECompiler {
 
-    public boolean isLexicalValid(String expression) {
+    private boolean isLexicalValid(String expression) {
         return new Lexical().Accepte(expression);
     }
 
-    public boolean isSyntaxValid(ArrayList<String> units) {
+    private boolean isSyntaxValid(ArrayList<String> units) {
         return new Syntax().Parsing(units) != null;
     }
 
-    public ArrayList<String> getUnits(String expression) {
+    private ArrayList<String> getUnits(String expression) {
         return new Lexical().getTokensER(expression);
     }
 
-    public AST generateAST(ArrayList<String> units) {
+    private AST generateAST(ArrayList<String> units) {
         return new Syntax().Parsing(units);
     }
 
-    public STE generateSTE(AST tree, String localite) {
+    private STE generateSTE(AST tree, String localite) {
         return new Semantics().generate(tree, localite);
     }
 
@@ -134,7 +134,8 @@ public class ECompiler {
         return null;
     }
 
-    public static void main(String args[]) {
+    /* This main is used to test the Elementary Compiler */
+    public static void main(String[] args) {
         System.out.println("Expression LOTOS: ");
         String expression = new Scanner(System.in).nextLine();
         System.out.println("Localité initiale: ");

@@ -3,20 +3,13 @@ package Elementaire.Semantic;
 import Elementaire.Syntax.AST;
 
 public class Action {
-    AST ast;
-    int sucIndex;
+    private AST ast;
+    private int sucIndex;
     public Action(int suc,AST ast) {
         sucIndex=suc;
         this.ast=ast;
     }
 
-    public void setAst(AST ast) {
-        this.ast = ast;
-    }
-
-    public void setSucIndex(int sucIndex) {
-        this.sucIndex = sucIndex;
-    }
 
     public AST getAst() {
         return ast;

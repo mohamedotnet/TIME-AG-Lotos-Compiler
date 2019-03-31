@@ -1,5 +1,7 @@
 package Elementaire.Lexical;
 
+/* TODO: Refactor the existing code */
+
 public class Arbre {
     private int valeur;
     private Arbre gauche, droit;

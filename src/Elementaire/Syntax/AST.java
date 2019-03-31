@@ -2,6 +2,8 @@ package Elementaire.Syntax;
 
 import java.util.ArrayList;
 
+/* TODO: refactor */
+
 public class AST {
 
     AST left;
@@ -35,7 +37,7 @@ public class AST {
         this.right = right;
     }
 
-    public void setUnit(String unit) {
+    private void setUnit(String unit) {
         this.unit = unit;
     }
 
@@ -96,7 +98,7 @@ public class AST {
         return false;
     }
 
-    public boolean findL(String value) {
+    private boolean findL(String value) {
         if (value.equals(getUnit())) {
             return true;
         }
@@ -118,71 +120,47 @@ public class AST {
         }
     }
 
-    public AST insert(String[] value) {
-        AST n = null;
-
-        return n;
-    }
 
     public String toString() {
         return ("");
     }
 
+    /* TODO: refactor */
     public AST clone() {
         return new AST(unit, left, right);
     }
 
-    public boolean equals1(AST ast) {
-        if (this == ast) {
-            return true;
-        } else if ((unit != null) && (ast.unit != null)) {
-            return unit.equals(ast.unit);
-        } else {
-            return false;
-        }
-    }
-
     public boolean equalsALL(AST ast) {
-        Boolean v=true;
+        boolean v = true;
         if (!ast.getUnit().equals(getUnit())) {
-            v= false;
+            v = false;
         }
-        if (getNodeLeft() != null&&v) {
+        if (getNodeLeft() != null && v) {
             if (ast.getNodeLeft() != null) {
-                v= (getNodeLeft().equalsALL(ast.getNodeLeft()));
-            }else
-                v= false;
+                v = (getNodeLeft().equalsALL(ast.getNodeLeft()));
+            } else
+                v = false;
         }
-        if (getNodeRight() != null&&v) {
+        if (getNodeRight() != null && v) {
             if (ast.getNodeRight() != null) {
-                v= (getNodeRight().equalsALL(ast.getNodeRight()));
-            }else
-                v= false;
+                v = (getNodeRight().equalsALL(ast.getNodeRight()));
+            } else
+                v = false;
         }
         return v;
     }
 
     public boolean isLeaf() {
-        if ((left == null) && (right == null)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (left == null) && (right == null);
     }
-    public boolean equalsANY(ArrayList<String> units){
-        for (int i = 0; i < units.size(); i++) {
-            if(unit.equals(units.get(i)))
-                return true;
+
+    public boolean equalsANY(ArrayList<String> units) {
+        for (String unitL:
+             units) {
+            if (unit.equals(unitL)) return true;
         }
         return false;
     }
-    //insert(Object obj){
-
-    //}
-    //traverse(){
-    //}
-    //delate(){
-    //}
 }
 
 

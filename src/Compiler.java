@@ -12,7 +12,8 @@ import java.util.regex.Pattern;
 
 public class Compiler implements Runnable{
 
-    public String localite, expression;
+    private String localite, expression;
+
     public Compiler(String localite, String expression){
         this.localite = localite;
         this.expression = expression;
@@ -32,7 +33,7 @@ public class Compiler implements Runnable{
         return result;
     }
 
-    public Graph completeGraph(){
+    private Graph completeGraph(){
 
         /* TODO: Verify Syntax of expression */
 
@@ -73,6 +74,7 @@ public class Compiler implements Runnable{
         complete.display();
     }
 
+    /* Test the compiler on command line */
     public static void main(String[] args){
         Compiler compiler = new Compiler(new Scanner(System.in).nextLine(), new Scanner(System.in).nextLine());
         Graph complete = compiler.completeGraph();
