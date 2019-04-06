@@ -24,16 +24,37 @@ public class Plan {
     }*/
 
 
+
     private char randomChar() {
         int rand = ThreadLocalRandom.current().nextInt(97, 122);
         System.out.println(rand);
         return (char) (rand);
     }
 
+    public static String extractGeneralExpression(String expression){
+        String[] nds = expression.split("\\s?=\\s?", 2);
+        if (nds.length <= 1){
+            return null;
+        }
+        return nds[1];
+    }
+
+    public static String getExpressionName(String expression){
+        String[] nds = expression.split("\\s?=\\s?", 2);
+        if (nds.length <= 1){
+            return null;
+        }
+        return nds[0];
+    }
+
+    /* TODO: Turing machine method to test syntax */
     public Graph generatePlanGraph() {
         /* Create Graph */
         Graph plan = new SingleGraph("Plan");
         String[] nds = expression.split("\\s?=\\s?", 2);
+        if (nds.length <= 1){
+            return null;
+        }
         String[] nodes = nds[1].split("\\s?>>\\s?|\\s?\\Q|||\\E\\s?");
 
         Node nodeT;
@@ -74,6 +95,7 @@ public class Plan {
                 plan.addEdge(nds[0] + node.getId(), nds[0], node.getId(), true);
             }
         }
+        System.out.println(plan.toString());
         //System.out.println(plan.getNode(0).getId());
         GraphStyle.style(plan);
         return plan;

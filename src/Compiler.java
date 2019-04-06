@@ -6,11 +6,12 @@ import Graph.GraphStyle;
 import org.graphstream.graph.implementations.Graphs;
 
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Compiler implements Runnable{
+public class Compiler{
 
     private String localite, expression;
 
@@ -22,8 +23,11 @@ public class Compiler implements Runnable{
     private String getExpression(String input) {
         Pattern pattern = Pattern.compile("\\((.*?)\\)");
         Matcher matcher = pattern.matcher(input);
-        matcher.matches();
-        return matcher.group(1);
+        if (matcher.matches()){
+            return matcher.group(1);
+        }else {
+            return null;
+        }
     }
 
     private Graph generateTotalGraph(Graph result, Graph elementary, Graph output, int index){
@@ -33,12 +37,25 @@ public class Compiler implements Runnable{
         return result;
     }
 
-    private Graph completeGraph(){
+    public boolean checkGeneralLexic(String input){
+        Stack stack = new Stack();
+
+        for (int i = 0; i < input.length(); i++){
+            if(input.charAt(i) == '('){
+                stack.push(input.charAt(i));
+            }
+        }
+        input = input.replaceAll("[A-Z](\\d)*\\|\\=|\\((.*?)\\)|>>|\\Q|||\\E", "");
+        return input.equals("");
+    }
+
+    public Graph completeGraph(){
 
         /* TODO: Verify Syntax of expression */
 
         Plan plan = new Plan(expression);
         Graph output = plan.generatePlanGraph();
+        if (output == null) return null;
         Graph elementary, result = output;
 
         for (int i = 0; i < output.getNodeCount(); i++) {
@@ -46,17 +63,22 @@ public class Compiler implements Runnable{
                 String idNode = output.getNode(i).getAttribute("ui.label").toString().replaceAll("(?i)[a-z][a-z0-9]*\\^", "");
 
                 /* Extract intentions */
+                if (getExpression(output.getNode(i).getId()) == null){
+                    return null;
+                }
                 String[] intensions = getExpression(output.getNode(i).getId()).split("<>");
                 if (intensions.length > 1) {
                     int j = 0;
                     do {
                         elementary = new ECompiler().generateEGraphe(intensions[j], localite, idNode + j);
+                        if (elementary == null) return null;
                         //Graph generated = new ECompiler().generateEGraphe(intensions[j + 1], localite, idNode + j + 1);
                         result = generateTotalGraph(result, elementary, output, i);
                         j++;
                     } while (j < intensions.length);
                 } else {
                     elementary = new ECompiler().generateEGraphe(getExpression(output.getNode(i).getId()), localite, idNode);
+                    if (elementary == null) return null;
                     result = generateTotalGraph(result, elementary, output, i);
                 }
 
@@ -67,13 +89,10 @@ public class Compiler implements Runnable{
         return result;
     }
 
-    @Override
-    public void run() {
-        Graph complete = completeGraph();
-        GraphStyle.style(complete);
-        complete.display();
-    }
 
+    public boolean isVerified(){
+        return completeGraph() != null;
+    }
     /* Test the compiler on command line */
     public static void main(String[] args){
         Compiler compiler = new Compiler(new Scanner(System.in).nextLine(), new Scanner(System.in).nextLine());
