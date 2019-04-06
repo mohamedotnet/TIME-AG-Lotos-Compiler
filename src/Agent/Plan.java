@@ -48,6 +48,10 @@ public class Plan {
     }
 
     /* TODO: Turing machine method to test syntax */
+    public static String[] getElementaryExpressions(String expression){
+        return expression.split("\\s?>>\\s?|\\s?\\Q|||\\E\\s?");
+    }
+
     public Graph generatePlanGraph() {
         /* Create Graph */
         Graph plan = new SingleGraph("Plan");

@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e9a9189-9c9a-47b8-b3bb-5fa4a179bec6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20180813.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LotosCompiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LotosCompiler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Agent/Plan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Agent/Plan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Compiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Compiler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/CompilerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/CompilerGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/ECompiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/ECompiler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Lexical/Arbre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Lexical/Arbre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Lexical/Lexical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Lexical/Lexical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Semantic/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Semantic/Action.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Semantic/Semantics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Semantic/Semantics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Syntax/AST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Syntax/AST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Syntax/Syntax.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LotosCompiler/Elementaire/Syntax/Syntax.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Graphs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LotosCompiler/Intentionel/Intentionel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Agent/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent/Plan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Compiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CompilerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CompilerGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,13 +22,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CompilerGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
+            <state relative-caret-position="66">
+              <caret line="94" column="78" lean-forward="true" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4421#5309#0" />
                 <element signature="e#4691#4692#0" expanded="true" />
                 <element signature="e#4744#4745#0" expanded="true" />
               </folding>
@@ -50,18 +38,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global_expressions.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/elementary_expressions.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Compiler.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/global_expressions.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="68" column="91" selection-start-line="68" selection-start-column="91" selection-end-line="68" selection-end-column="91" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -69,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Agent/Plan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            <state relative-caret-position="235">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,7 +133,10 @@
         <option value="$PROJECT_DIR$/global_expression.txt" />
         <option value="$PROJECT_DIR$/employees.json" />
         <option value="$PROJECT_DIR$/src/Agent/Plan.java" />
+        <option value="$PROJECT_DIR$/elementary_expressions.json" />
+        <option value="$PROJECT_DIR$/global_expressions.txt" />
         <option value="$PROJECT_DIR$/src/CompilerGUI.java" />
+        <option value="$PROJECT_DIR$/elementary_expressions.txt" />
       </list>
     </option>
   </component>
@@ -192,7 +184,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554547025009" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554557620283" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-20180813.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -314,7 +306,7 @@
       <workItem from="1554033119294" duration="2613000" />
       <workItem from="1554205032490" duration="623000" />
       <workItem from="1554300854453" duration="14755000" />
-      <workItem from="1554458585132" duration="11655000" />
+      <workItem from="1554458585132" duration="18056000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor v1.0">
       <created>1554042730822</created>
@@ -323,17 +315,24 @@
       <option name="project" value="LOCAL" />
       <updated>1554042730822</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add features">
+      <created>1554547061923</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554547061923</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254395000" />
+    <option name="totallyTimeSpent" value="260796000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="54" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16818182" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16818182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -343,7 +342,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32879582" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848485" visible="true" weight="0.32736155" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848485" visible="true" weight="0.32736155" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42508143" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -404,7 +403,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor v1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor v1.0" />
+    <MESSAGE value="Add features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -510,42 +510,6 @@
           <line>63</line>
           <properties />
           <option name="timeStamp" value="259" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Compiler.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="260" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Compiler.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="261" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Compiler.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="262" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Compiler.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="263" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Compiler.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="264" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Compiler.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="265" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Compiler.java</url>
@@ -865,38 +829,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Agent/Plan.java">
+    <entry file="file://$PROJECT_DIR$/src/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        <state relative-caret-position="260">
+          <caret line="72" column="65" lean-forward="true" selection-start-line="72" selection-start-column="65" selection-end-line="72" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Compiler.java">
+    <entry file="file://$PROJECT_DIR$/elementary_expressions.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="68" column="91" selection-start-line="68" selection-start-column="91" selection-end-line="68" selection-end-column="91" />
+        <state relative-caret-position="72">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CompilerGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="94" column="78" lean-forward="true" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4421#5309#0" />
+            <element signature="e#4691#4692#0" expanded="true" />
+            <element signature="e#4744#4745#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elementary_expressions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global_expressions.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CompilerGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4691#4692#0" expanded="true" />
-            <element signature="e#4744#4745#0" expanded="true" />
-          </folding>
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>

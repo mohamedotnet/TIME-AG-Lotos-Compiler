@@ -6,6 +6,7 @@ import org.graphstream.ui.view.Viewer;
 import Graph.GraphStyle;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import scala.util.parsing.json.JSON;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,6 @@ public class CompilerGUI implements Runnable{
     /* TODO: handle thread exit */
 
     private JTextField localite, expression;
-
     @Override
     public void run() {
         JFrame frame;
@@ -73,35 +73,16 @@ public class CompilerGUI implements Runnable{
                 JOptionPane.showMessageDialog(null, "Please enter an expression!");
             }else {
                 if (new Compiler(localite.getText(), expression.getText()).isVerified()) {
-                    /*
-                    FileOutputStream fop;
-                    File file;
-                    try {
-                        String entry = "{\"" + Plan.extractGeneralExpression(expression.getText()) + "\": null}";
-                        file = new File("global_expression.txt");
-                        fop = new FileOutputStream(file, true);
-
-                        byte[] contentInBytes = Plan.extractGeneralExpression(expression.getText()+"\n").getBytes();
-
-                        fop.write(contentInBytes, 0, contentInBytes.length);
-                        fop.close();
-                        JOptionPane.showMessageDialog(null, "Expression successfully saved!");
-                    } catch (FileNotFoundException e1) {
-                        e1.printStackTrace();
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }*/
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put(Plan.getExpressionName(expression.getText()), Plan.extractGeneralExpression(expression.getText()));
 
-                    JSONArray expressionList = new JSONArray();
-                    expressionList.put(jsonObject);
 
                     FileWriter file;
                     try {
                         file = new FileWriter("global_expressions.txt", true);
-                        file.append(expressionList.toString()+"\n");
+                        file.append(jsonObject.toString()+"\n");
                         file.flush();
+                        JOptionPane.showMessageDialog(null, "Global Exp. Successfully saved!");
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -114,8 +95,40 @@ public class CompilerGUI implements Runnable{
         // P0|=(delta(2)a;b;exit<>c;d;exit{4})|||(move(l1);get;exit<>e;f;exit)
         // P0|=(a;exit|||b;exit{1})>>(c;exit)
         // P0|=(a;b;exit<>c;d;exit{4})|||(move(l1);get;exit<>e;f;exit)
-        // P0|=(a;b;exit<>c;d;exit)|||(move(l1);get;exit<>e;f;exit)
+        // P0|=(a;b;exit<>c;d;exit)|||(move(l1);get;exit)>>(e;f;exit)
 
+        /* Handle saveElementary Button */
+        saveElementary.addActionListener((ActionEvent e) ->{
+            if (expression.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Please enter an expression!");
+            }else {
+                if (new Compiler(localite.getText(), expression.getText()).isVerified()) {
+                    JSONObject jsonObject = new JSONObject();
+
+                    JSONArray jsonArray = new JSONArray();
+                    for (String s :
+                            Plan.getElementaryExpressions(Plan.extractGeneralExpression(expression.getText()))){
+                        System.out.println(s);
+                        jsonArray.put(s);
+                    }
+
+                    jsonObject.put(Plan.extractGeneralExpression(expression.getText()), jsonArray);
+
+                    FileWriter file;
+                    try {
+                        file = new FileWriter("elementary_expressions.txt", true);
+                        file.append(jsonObject.toString(2)+"\n");
+                        file.flush();
+                        JOptionPane.showMessageDialog(null, "Elementary Exps. Successfully saved!");
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
+                }else {
+                    JOptionPane.showMessageDialog(null, "Syntax Error!");
+                }
+            }
+        });
 
         /* Handle compile Button Event */
         compile.addActionListener((ActionEvent e)-> {
