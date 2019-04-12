@@ -93,12 +93,13 @@ public class CompilerGUI implements Runnable{
             }
         });
         // P0|=(delta(2)a;b;exit<>c;d;exit{4})|||(move(l1);get;exit<>e;f;exit)
-        // P0|=(a;exit|||b;exit{1})>>(c;exit)
+        // P0|=(a@t1[4<t1<7];exit<>b;exit{1})>>(c;exit)
         // P0|=(a;b;exit<>c;d;exit{4})|||(move(l1);get;exit<>e;f;exit)
         // P0|=(a;b;exit<>c;d;exit)|||(move(l1);get;exit)>>(e;f;exit)
 
         /* Handle saveElementary Button */
         saveElementary.addActionListener((ActionEvent e) ->{
+        //P0|=(a;exit|||b;exit{1})>>(c;exit) => Error
             if (expression.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter an expression!");
             }else {

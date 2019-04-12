@@ -37,17 +37,6 @@ public class Compiler{
         return result;
     }
 
-    public boolean checkGeneralLexic(String input){
-        Stack stack = new Stack();
-
-        for (int i = 0; i < input.length(); i++){
-            if(input.charAt(i) == '('){
-                stack.push(input.charAt(i));
-            }
-        }
-        input = input.replaceAll("[A-Z](\\d)*\\|\\=|\\((.*?)\\)|>>|\\Q|||\\E", "");
-        return input.equals("");
-    }
 
     public Graph completeGraph(){
 

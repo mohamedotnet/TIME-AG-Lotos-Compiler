@@ -4,6 +4,9 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 import Graph.GraphStyle;
+
+import java.util.ArrayList;
+import java.util.Stack;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -48,8 +51,80 @@ public class Plan {
     }
 
     /* TODO: Turing machine method to test syntax */
+    public static int isBalanced(String expression) {
+        Stack<Character> stackLeft = new Stack<>();
+        Stack<Character> stackRight = new Stack<>();
+
+        for (int i = 0; i < expression.length(); i++) {
+            if (expression.charAt(i) == '(')
+                stackLeft.push(expression.charAt(i));
+            else if (expression.charAt(i) == ')') {
+                stackRight.push(expression.charAt(i));
+            }
+        }
+        if (stackLeft.size() == stackRight.size()) {
+            return 1;
+        }else if (stackLeft.size() < stackRight.size()){
+            return 0;
+        }else {
+            return -1;
+        }
+
+    }
+
+    private static String buildString(char c, char d, char ... args){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(c);
+        stringBuilder.append(d);
+
+        if (args.length == 0){
+            stringBuilder.append(args[0]);
+        }
+
+        return stringBuilder.toString();
+    }
     public static String[] getElementaryExpressions(String expression){
-        return expression.split("\\s?>>\\s?|\\s?\\Q|||\\E\\s?");
+        ArrayList<String> expressions = new ArrayList<>();
+        String exp = "";
+
+        for (int i = 0; i < expression.length(); i++){
+            if ((expression.charAt(i) == '|' && expression.charAt(i+1) == '|' & expression.charAt(i+2) == '|')){
+                if (Plan.isBalanced(exp) == 1) {
+                    expressions.add(exp);
+                    exp = "";
+                    i += 3;
+                }else {
+                    if (Plan.isBalanced(exp) == 0){
+                        return null;
+                    }
+
+                    exp += Plan.buildString(expression.charAt(i), expression.charAt(i+1), expression.charAt(i+2));
+                    i += 3;
+                }
+            }else if ((expression.charAt(i) == '>' && expression.charAt(i+1) == '>')){
+                if (Plan.isBalanced(exp) == 1) {
+                    expressions.add(exp);
+                    exp = "";
+                    i += 2;
+                }else {
+                    if (Plan.isBalanced(exp) == 0){
+                        return null;
+                    }
+                    exp += Plan.buildString(expression.charAt(i), expression.charAt(i+1));
+                    i += 2;
+                }
+            }
+            exp += expression.charAt(i);
+            if (i == expression.length()-1){
+                if (Plan.isBalanced(exp) == 1){
+                    expressions.add(exp);
+                }else {
+                    return null;
+                }
+            }
+        }
+        //return expression.split("\\s?>>\\s?|\\s?\\Q|||\\E\\s?");
+        return expressions.toArray(new String[0]);
     }
 
     public Graph generatePlanGraph() {
@@ -59,8 +134,15 @@ public class Plan {
         if (nds.length <= 1){
             return null;
         }
-        String[] nodes = nds[1].split("\\s?>>\\s?|\\s?\\Q|||\\E\\s?");
+        String[] nodes = getElementaryExpressions(nds[1]);
 
+        for (String s:
+            nodes){
+            if (Plan.isBalanced(s) != 1){
+                System.out.println("Unbalanced");
+                return null;
+            }
+        }
         Node nodeT;
         for (int i = 0; i < nodes.length; i++) {
             char id = randomChar();
